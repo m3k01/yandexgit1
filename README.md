@@ -194,12 +194,16 @@ $ cd ~ && ls -la .ssh/ # зашли в домашнюю директорию и 
 
    Если это первый раз, когда вы используете Git, чтобы поделиться проектом на GitHub, появится похожее предупреждение.
 
-```bash The authenticity of host 'github.com (140.82.121.4)' can't be established. ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU. This key is not known by any other names. Are you sure you want to continue connecting (yes/no/[fingerprint])? ```
+```bash 
+The authenticity of host 'github.com (140.82.121.4)' can't be established. ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU. This key is not known by any other names. Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
 
    Это предупреждение сообщает, что вы никогда не соединялись с сервером GitHub. Поэтому Git не может гарантировать, что сервер является тем, за кого он себя выдаёт.
 Для подтверждения подлинности сервер генерирует и публикует ключи SHA256. Вы можете проверить ключи GitHub по этой ссылке. Если ключ в предупреждении совпадает с тем, что вы видите на сайте, значит, сервер является действительным. Введите yes, чтобы продолжить. Вы увидите приветствие на экране.
 
-```bash Hi %ВАШ_АККАУНТ%! You've successfully authenticated, but GitHub does not provide shell access. ```
+```bash 
+Hi %ВАШ_АККАУНТ%! You've successfully authenticated, but GitHub does not provide shell access. 
+```
 
 <b>Ура: теперь ваш ключ привязан к GitHub! Если вы установили кодовую фразу для SSH-ключа, её нужно будет вводить для работы с репозиторием.<\b>
 
@@ -211,16 +215,20 @@ $ cd ~ && ls -la .ssh/ # зашли в домашнюю директорию и 
 
    Откройте консоль, перейдите в каталог локального репозитория и введите команду git remote add (от англ. remote — «удалённый» и add — «добавить»).
 
-```bash $ cd ~/dev/first-project
-$ git remote add origin git@github.com:%ИМЯ_АККАУНТА%/first-project.git ```
+```bash 
+$ cd ~/dev/first-project
+$ git remote add origin git@github.com:%ИМЯ_АККАУНТА%/first-project.git 
+```
 
 ### Убедиться, что репозитории связаны, — git remote -v
 
    Отлично: вы связали локальный репозиторий с удалённым. Осталось убедиться, что всё работает, с помощью следующей команды.
 
-```bash $ git remote -v
+```bash 
+$ git remote -v
 origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git (fetch)
-origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git (push) ```
+origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git (push) 
+```
 
 ## Синхронизируем локальный и удалённый репозитории
 
@@ -229,8 +237,10 @@ origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git (
    Вы уже прошли весь «цикл коммита»: подготовили файлы с помощью git add, закоммитили их с комментарием командой git commit -m. Осталось загрузить содержимое локального репозитория на GitHub. За это отвечает команда git push (от англ. push — «толкать»).
    В первый раз эту команду нужно вызвать с флагом -u и параметрами origin (имя удалённого репозитория) и main или master (название текущей ветки). Флаг -u свяжет локальную ветку с одноимённой удалённой. Как вы связывали локальный и удалённый репозитории в предыдущем уроке, так же и здесь нужно дополнительно связать ветки.
 
-```bash $ git push -u origin main # Если команда приведёт к ошибке, попробуйте 
-                          # заменить main на master. ```
+```bash 
+$ git push -u origin main # Если команда приведёт к ошибке, попробуйте 
+                          # заменить main на master. 
+```
 
 
    При взаимодействии с удалёнными репозиториями Git выводит в консоль отладочную информацию: количество объектов (файлов), которые отправляются на сервер, информацию о прогрессе сжатия и записи и так далее.
